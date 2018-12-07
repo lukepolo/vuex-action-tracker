@@ -2,23 +2,20 @@ import { Store } from "vuex";
 import VuexActionTrackerStore from "./store";
 import { VueConstructor } from "vue/types/vue";
 
-export default class Index {
+export default class VuexActionTracker {
+  public config: {
+    exclude: Array<string>;
+    include: Array<string>;
+  };
+
   private _Vue;
   private _store;
 
-  public install(
-    Vue: VueConstructor,
-    {
-      store,
-      config
-    }: {
-      store: Store<any>;
-      config: {
-        exclude: Array<string>;
-        include: Array<string>;
-      };
-    }
-  ) {
+  constructor(config?) {
+    this.config = config;
+  }
+
+  public install(Vue: VueConstructor, store: Store<any>) {
     if (!store) {
       throw new Error("Please provide vuex store.");
     }
@@ -30,7 +27,7 @@ export default class Index {
 
     store.registerModule(
       ["vuexActionTracker"],
-      new VuexActionTrackerStore(config)
+      new VuexActionTrackerStore(this.config)
     );
   }
 

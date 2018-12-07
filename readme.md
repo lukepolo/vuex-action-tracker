@@ -19,9 +19,7 @@ npm install vuex-action-tracker
 import store from "./store";
 import VuexActionTracker from "vuex-action-tracker";
 
-Vue.use(VuexActionTracker, {
-  store
-});
+Vue.use(new VuexActionTracker(), store);
 ```
 
 ## Usage
@@ -39,7 +37,7 @@ export default {
     },
     computed() {
         loaderIsVisible() {
-            return this.$store.getters["vuexActionTracker/hasRunningActions"]
+            return this.$store.getters["vuexActionTracker/hasRunningActions"]()
         },
         user() {
             return this.$store.auth.user;
@@ -54,13 +52,13 @@ export default {
 You can pass in a configuration into the plugin :
 
 ```js
-Vue.use(VuexActionTracker, {
-  store,
-  config: {
+Vue.use(
+  new VuexActionTracker({
     include: [],
     exclude: []
-  }
-});
+  }),
+  store
+);
 ```
 
 ## Excluding Actions
@@ -68,12 +66,12 @@ Vue.use(VuexActionTracker, {
 To exclude certain actions you can define them in the config.
 
 ```js
-Vue.use(VuexActionTracker, {
-  store,
-  config: {
+Vue.use(
+  new VuexActionTracker({
     exclude: ["loaders/show", "loaders/hide"]
-  }
-});
+  }),
+  store
+);
 ```
 
 ## Including Actions
@@ -81,12 +79,12 @@ Vue.use(VuexActionTracker, {
 By including actions you will by default exclude `all` actions outside of the include config.
 
 ```js
-Vue.use(VuexActionTracker, {
-  store,
-  config: {
+Vue.use(
+  new VuexActionTracker({
     include: ["users/search", "auth/getUser"]
-  }
-});
+  }),
+  store
+);
 ```
 
 ## Advanced Usage

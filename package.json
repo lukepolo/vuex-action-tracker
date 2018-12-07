@@ -1,6 +1,6 @@
 {
   "name": "vuex-action-tracker",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Tracks Vuex Actions when they start and when they finish",
   "main": "./lib/index.js",
   "typings": "./lib/index",
@@ -9,6 +9,12 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "/src/*.{ts,json,css,md,vue}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",

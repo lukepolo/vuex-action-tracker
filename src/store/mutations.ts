@@ -9,9 +9,8 @@ export default function(config) {
           payload,
           options
         });
+        state.hasRunningActions = true;
       }
-
-      state.hasRunningActions = true;
     },
     setInActive: (state, { type, payload, options }) => {
       for (let index in state.dispatches[type]) {
@@ -31,10 +30,10 @@ export default function(config) {
   };
 
   function shouldInclude(type) {
-    if (config.include && config.include.length > 0) {
+    if (config && config.include && config.include.length > 0) {
       return config.include.includes(type);
     }
-    if (config.exclude && config.exclude.length > 0) {
+    if (config && config.exclude && config.exclude.length > 0) {
       return !config.exclude.includes(type);
     }
     return true;

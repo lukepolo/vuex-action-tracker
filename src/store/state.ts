@@ -1,4 +1,4 @@
 export default {
   dispatches: {},
-  hasRunningActions: true
+  hasRunningActions: false
 };
