@@ -1,0 +1,35 @@
+{
+  "name": "vuex-action-tracker",
+  "version": "0.0.1",
+  "description": "Tracks Vuex Actions when they start and when they finish",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "precommit": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukepolo/vuex-progress.git"
+  },
+  "keywords": [
+    "Vuex",
+    "Vue",
+    "Loader",
+    "Actions"
+  ],
+  "author": "Luke Policinski <Luke@LukePOLO.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukepolo/vuex-progress/issues"
+  },
+  "homepage": "https://github.com/lukepolo/vuex-progress#readme",
+  "devDependencies": {
+    "@types/node": "^10.12.2",
+    "husky": "^0.14.3",
+    "lint-staged": "^8.0.4",
+    "typescript": "^3.1.6",
+    "vue": "^2.5.17",
+    "vuex": "^3.0.1"
+  }
+}
