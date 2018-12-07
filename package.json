@@ -1,8 +1,10 @@
 {
   "name": "vuex-action-tracker",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Tracks Vuex Actions when they start and when they finish",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "typings": "./lib/index",
+  "types": "./lib/index",
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
@@ -31,5 +33,9 @@
     "typescript": "^3.1.6",
     "vue": "^2.5.17",
     "vuex": "^3.0.1"
-  }
+  },
+  "files": [
+    "lib",
+    "src"
+  ]
 }
