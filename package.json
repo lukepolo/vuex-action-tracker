@@ -6,6 +6,7 @@
   "typings": "./lib/index",
   "types": "./lib/index",
   "scripts": {
+    "test": "jest",
     "build": "tsc",
     "watch": "tsc --watch",
     "precommit": "lint-staged"
@@ -33,9 +34,12 @@
   },
   "homepage": "https://github.com/lukepolo/vuex-progress#readme",
   "devDependencies": {
+    "@types/jest": "^23.3.10",
     "@types/node": "^10.12.2",
     "husky": "^0.14.3",
+    "jest": "^23.6.0",
     "lint-staged": "^8.0.4",
+    "ts-jest": "^23.10.5",
     "typescript": "^3.1.6",
     "vue": "^2.5.17",
     "vuex": "^3.0.1"

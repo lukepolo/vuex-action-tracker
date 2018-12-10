@@ -1,16 +1,14 @@
 export default function(config) {
   return {
     setActive: (state, { type, payload, options }) => {
-      if (shouldInclude(type)) {
-        if (!state.dispatches[type]) {
-          state.dispatches[type] = [];
-        }
-        state.dispatches[type].push({
-          payload,
-          options
-        });
-        state.hasRunningActions = true;
+      if (!state.dispatches[type]) {
+        state.dispatches[type] = [];
       }
+      state.dispatches[type].push({
+        payload,
+        options
+      });
+      state.hasRunningActions = true;
     },
     setInActive: (state, { type, payload, options }) => {
       for (let index in state.dispatches[type]) {
@@ -28,14 +26,4 @@ export default function(config) {
       }
     }
   };
-
-  function shouldInclude(type) {
-    if (config && config.include && config.include.length > 0) {
-      return config.include.includes(type);
-    }
-    if (config && config.exclude && config.exclude.length > 0) {
-      return !config.exclude.includes(type);
-    }
-    return true;
-  }
 }
